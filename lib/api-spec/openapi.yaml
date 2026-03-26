@@ -1,0 +1,150 @@
+openapi: 3.1.0
+info:
+  title: Api
+  version: 0.1.0
+  description: Helio AI SaaS API
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: newsletter
+    description: Newsletter operations
+  - name: demo
+    description: Demo request operations
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+  /newsletter/signup:
+    post:
+      operationId: newsletterSignup
+      tags: [newsletter]
+      summary: Newsletter signup
+      description: Subscribe to the Helio newsletter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NewsletterSignupRequest"
+      responses:
+        "200":
+          description: Successfully subscribed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NewsletterSignupResponse"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /demo/request:
+    post:
+      operationId: demoRequest
+      tags: [demo]
+      summary: Request a demo
+      description: Submit a demo request
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DemoRequestBody"
+      responses:
+        "200":
+          description: Demo request submitted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DemoRequestResponse"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+    NewsletterSignupRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+      required:
+        - email
+    NewsletterSignupResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+      required:
+        - success
+        - message
+    DemoRequestBody:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        company:
+          type: string
+        message:
+          type: string
+      required:
+        - name
+        - email
+    DemoRequestResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+      required:
+        - success
+        - message
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error

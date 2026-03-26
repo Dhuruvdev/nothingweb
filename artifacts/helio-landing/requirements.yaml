@@ -1,0 +1,15 @@
+packages:
+  "framer-motion": "Required for scroll animations, page transitions, and the demo modal"
+  "react-hook-form": "Required for robust form state management in demo/newsletter forms"
+  "@hookform/resolvers": "Required for Zod schema validation integration"
+  "zod": "Required for typed schema validation in forms"
+  "lucide-react": "Required for beautiful UI icons"
+  "clsx": "Required for utility class merging"
+  "tailwind-merge": "Required for utility class merging"
+
+images: []
+
+notes:
+  - "Using generated hooks useDemoRequest and useNewsletterSignup from @workspace/api-client-react"
+  - "Canvas API is used for the high-performance particle network, lazy loaded for optimal initial render"
+  - "Theme is forced to dark mode with deep navy (#020617) as requested"
