@@ -51,6 +51,7 @@ export default defineConfig({
       "@": path.resolve(import.meta.dirname, "src"),
       "@assets": path.resolve(import.meta.dirname, "..", "..", "attached_assets"),
     },
+    conditions: ["workspace", "module", "browser", "default"],
     dedupe: ["react", "react-dom"],
   },
   root: path.resolve(import.meta.dirname),

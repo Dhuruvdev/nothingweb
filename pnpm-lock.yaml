@@ -515,6 +515,19 @@ importers:
       '@tanstack/react-query':
         specifier: 'catalog:'
         version: 5.90.21(react@19.1.0)
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+      zod:
+        specifier: 'catalog:'
+        version: 3.25.76
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 25.3.5
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.2.14
 
   lib/api-spec:
     devDependencies:
@@ -527,31 +540,38 @@ importers:
       zod:
         specifier: 'catalog:'
         version: 3.25.76
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 25.3.5
 
   lib/db:
     dependencies:
       drizzle-orm:
         specifier: 'catalog:'
         version: 0.45.1(@types/pg@8.18.0)(pg@8.20.0)
-      drizzle-zod:
-        specifier: ^0.8.3
-        version: 0.8.3(drizzle-orm@0.45.1(@types/pg@8.18.0)(pg@8.20.0))(zod@3.25.76)
       pg:
-        specifier: ^8.20.0
+        specifier: ^8.16.0
         version: 8.20.0
-      zod:
-        specifier: 'catalog:'
-        version: 3.25.76
     devDependencies:
       '@types/node':
         specifier: 'catalog:'
         version: 25.3.5
       '@types/pg':
-        specifier: ^8.18.0
+        specifier: ^8.11.14
         version: 8.18.0
       drizzle-kit:
-        specifier: ^0.31.9
+        specifier: ^0.31.1
         version: 0.31.9
+      drizzle-zod:
+        specifier: ^0.8.3
+        version: 0.8.3(drizzle-orm@0.45.1(@types/pg@8.18.0)(pg@8.20.0))(zod@3.25.76)
+      tsx:
+        specifier: 'catalog:'
+        version: 4.21.0
+      zod:
+        specifier: 'catalog:'
+        version: 3.25.76
 
   scripts:
     devDependencies:
